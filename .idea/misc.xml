@@ -82,4 +82,7 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="ruby-2.5.1-p57" project-jdk-type="RUBY_SDK" />
+  <component name="WebPackConfiguration">
+    <option name="path" value="$PROJECT_DIR$/config/webpack.config.js" />
+  </component>
 </project>

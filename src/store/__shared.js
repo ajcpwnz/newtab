@@ -1,0 +1,1 @@
+export const restoreStore = (key, data) => (dispatch) => dispatch({ type: `__SHARED_RESTORE_STORE__${key}`, payload: { data } })
