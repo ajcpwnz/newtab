@@ -18,9 +18,9 @@ const initialState = {
         y: 70
       },
       styles: {
-        width: '30%',
+        width: '400px',
       },
-      content: 'https://images.unsplash.com/photo-1549526872-0ceec67855e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80'
+      content: '/sky1.jpg'
     },
     0b1: {
       type: 'text',
@@ -54,17 +54,39 @@ const initialState = {
       },
       content: 'fix handles, allow create action'
     },
-    // '110': {
-    //   type: 'image',
-    //   coords: {
-    //     x: 1050,
-    //     y: 30
-    //   },
-    //   styles: {
-    //     width: '30%',
-    //   },
-    //   content: 'https://lifehacker.ru/special/cyberbullying/dist/static/img/article2-3-3.87e6060.jpg'
-    // },
+    0b110: {
+      type: 'image',
+      coords: {
+        x: 150,
+        y: 330
+      },
+      styles: {
+        width: '300px',
+      },
+      content: 'https://images.unsplash.com/photo-1549526872-0ceec67855e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80'
+    },
+    0b111: {
+      type: 'image',
+      coords: {
+        x: 946,
+        y: 430
+      },
+      styles: {
+        width: '340px',
+      },
+      content: '/sky2.jpg'
+    },
+    0b1000: {
+      type: 'image',
+      coords: {
+        x: 1037,
+        y: 13
+      },
+      styles: {
+        width: '540px',
+      },
+      content: '/sky3.jpg'
+    },
   }
 }
 

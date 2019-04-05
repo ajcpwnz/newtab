@@ -3,7 +3,8 @@ import {connect} from 'react-redux'
 import {setBG} from 'store/settings'
 import AttachmentLayer from 'components/AttachmentLayer/AttachmentLayer'
 import Settings from 'components/Settings/Settings'
-
+import axios from 'axios'
+window.axios = axios
 import './App.scss'
 
 class App extends Component {
