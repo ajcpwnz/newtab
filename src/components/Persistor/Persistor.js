@@ -10,7 +10,6 @@ class Persistor extends Component {
       const data = await storage.getValue(`serialized__${key}`)
       if (data) {
         const parsedData = JSON.parse(data)
-        console.warn(parsedData, '<<')
         this.props.restoreStore(key, parsedData)
       }
     })

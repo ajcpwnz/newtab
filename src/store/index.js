@@ -18,9 +18,7 @@ const reducers = {
 
 const serializer = () => next => action => {
   const res = next(action)
-  if (!action.type.includes('__SHARED_RESTORE_STORE__')) {
-    persistStore(store, 'attachments')
-  }
+  persistStore(store, 'attachments')
   return res
 }
 

@@ -10,13 +10,12 @@ import enhanceWithClickOutside from 'react-click-outside'
 import './Settings.scss'
 
 class Settings extends Component {
-  state = { show: false, }
+  state = { show: false }
 
   async componentDidMount() {
     const bg = await storage.getValue('bg')
     this.props.setBG(bg)
   }
-
 
   setColor = ({ hex: newColor }) => {
     this.props.setBG(newColor)
@@ -32,13 +31,20 @@ class Settings extends Component {
     const { mainBG } = this.props
     return (
       <div className="settings">
-        <span className="interact" onClick={() => this.setState({ show: !show })}>
+        <span
+          className="interact"
+          onClick={() => this.setState({ show: !show })}
+        >
           <img src={interact} alt="Icon - interact" />
         </span>
         <div className={cx('bar', { _show: show })}>
           <div className="inner">
             <div className="colorPicker">
-              <ChromePicker color={mainBG} type="color" onChangeComplete={this.setColor} />
+              <ChromePicker
+                color={mainBG}
+                type="color"
+                onChangeComplete={this.setColor}
+              />
             </div>
           </div>
         </div>
@@ -48,4 +54,7 @@ class Settings extends Component {
 }
 
 const _store = ({ settings: { mainBG } }) => ({ mainBG })
-export default connect(_store, { setBG })(enhanceWithClickOutside(Settings))
+export default connect(
+  _store,
+  { setBG }
+)(enhanceWithClickOutside(Settings))

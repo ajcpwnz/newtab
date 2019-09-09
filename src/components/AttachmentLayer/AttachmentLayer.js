@@ -3,17 +3,24 @@ import { connect } from 'react-redux'
 import Attachment from 'components/AttachmentLayer/Attachment/Attachment'
 import './AttachmentLayer.scss'
 
-
 const zOffset = 50
 
 class AttachmentLayer extends Component {
   render() {
     const { attachments } = this.props
+    console.warn(attachments)
     return (
       <div className="attachment-layer">
-        {Object.keys(attachments).map((key, idx) =>
-          <Attachment uid={key} layer={idx + zOffset} key={key} data={attachments[key]} />
-        )}
+        {attachments ?
+          Object.keys(attachments).map((key, idx) => (
+            <Attachment
+              uid={key}
+              layer={idx + zOffset}
+              key={key}
+              data={attachments[key]}
+            />
+          )) : null
+        }
       </div>
     )
   }
