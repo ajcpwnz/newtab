@@ -8,7 +8,6 @@ const zOffset = 50
 class AttachmentLayer extends Component {
   render() {
     const { attachments } = this.props
-    console.warn(attachments)
     return (
       <div className="attachment-layer">
         {attachments ?

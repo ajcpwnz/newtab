@@ -6,14 +6,34 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "icons": {  "48": "logo.png" ,
+  "icons": {
+    "48": "logo.png"
+  },
   "browser_action": {
     "default_icon": "logo.png"
   },
-  "permissions": ["tabs", "storage"],
+  "permissions": [
+    "<all_urls>",
+    "tabs",
+    "storage",
+    "contextMenus"
+  ],
   "background": {
-    "scripts": ["background.js"],
+    "scripts": [
+      "background.js"
+    ],
     "persistent": false
+  },
+  "commands": {
+    "enter_pip": {
+      "description": "Enter picture in picture mode",
+      "suggested_key": {
+        "windows": "Alt+P",
+        "mac": "MacCtrl+P",
+        "chromeos": "Alt+P",
+        "linux": "Alt+P"
+      }
+    }
   },
   "content_security_policy": "script-src 'self' 'sha256-GgRxrVOKNdB4LrRsVPDSbzvfdV4UqglmviH9GoBJ5jk=' 'unsafe-eval'; object-src 'self'"
 }
