@@ -6,6 +6,7 @@
     "@babel/core": "7.1.6",
     "@babel/plugin-transform-react-jsx-source": "^7.2.0",
     "@svgr/webpack": "2.4.1",
+    "@types/react-redux": "^7.1.2",
     "axios": "^0.18.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
@@ -83,5 +84,11 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.4",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "typescript": "^3.6.3"
   }
 }
