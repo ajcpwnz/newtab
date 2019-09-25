@@ -2,11 +2,13 @@ import cuid from 'cuid'
 
 const types = {
   ADD_ITEM: 'newtab/attachments/ADD_ITEM',
+  REMOVE_ITEM: 'newtab/attachments/REMOVE_ITEM',
   UPDATE_POSITION: 'newtab/attachments/UPDATE_POSITION',
   REMOVE_ALL: 'newtab/attachments/REMOVE_ALL'
 }
 
 export const addItem = data => ({ type: types.ADD_ITEM, payload: { data } })
+export const removeAttachment = (id) => dispatch => dispatch({ type: types.REMOVE_ITEM, payload: { id } })
 export const removeAll = () => ({ type: types.REMOVE_ALL })
 export const updatePosition = (key, coords) => ({
   type: types.UPDATE_POSITION,
@@ -43,6 +45,19 @@ export default (state = initialState, { type, payload }) => {
           ...state.attachments,
           [cuid()]: payload.data
         }
+      }
+    case types.REMOVE_ITEM:
+      const filteredAttachments = Object
+          .entries(state.attachments)
+          .filter(([k]) => k !== payload.id)
+          .reduce((obj, [k, val]) => {
+            obj[k] = val
+            return obj
+          }, {})
+        
+      return {
+        ...state,
+        attachments: filteredAttachments
       }
     case types.UPDATE_POSITION:
       return {

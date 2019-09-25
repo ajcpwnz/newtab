@@ -104,24 +104,24 @@ const Caret = styled.span`
 `
 
 const Log = ({ data }) => (
-  <>
-    <CommandRow>
-      <Command>
-        <Caret kind={data.kind}>❯ </Caret>
-        {data.command}
-      </Command>{' '}
-      <Timestamp>{data.timestamp}</Timestamp>
-    </CommandRow>
-    <Output kind={data.kind}>{data.output}</Output>
-  </>
+    <>
+      <CommandRow>
+        <Command>
+          <Caret kind={data.kind}>❯ </Caret>
+          {data.command}
+        </Command>{' '}
+        <Timestamp>{data.timestamp}</Timestamp>
+      </CommandRow>
+      <Output kind={data.kind}>{data.output}</Output>
+    </>
 )
 
 const Logs = ({ data }) => (
-  <LogsOuter>
-    {data.map((i, idx) => (
-      <Log data={i} key={idx} />
-    ))}
-  </LogsOuter>
+    <LogsOuter>
+      {data.map((i, idx) => (
+          <Log data={i} key={idx}/>
+      ))}
+    </LogsOuter>
 )
 
 const DELTA = 3000
@@ -145,19 +145,17 @@ const _handlers = {
 }
 const handlers = {
   run() {
-    return (
-      <>
-        {Object.keys(_handlers).map(func => (
+    return Object.keys(_handlers).map(func => {
+      return (
           <div key={func}>
-            <span onClick={_handlers[func].command.bind(this)}>
-              <u>{func}</u> → {_handlers[func].description}
-            </span>
+                    <span onClick={() => _handlers[func].command.apply(this)}>
+                      <u>{func}</u> → {_handlers[func].description}
+                    </span>
           </div>
-        ))}
-      </>
-    )
+      )
+    })
   },
-  addItem(text, type){
+  addItem(text, type) {
     this.props.addItem({
       type: type || 'text',
       coords: {
@@ -166,9 +164,9 @@ const handlers = {
       },
       content: text || '«newItem»'
     })
-    return `Item <${ text|| '«newItem»'}> created`
+    return `Item <${text || '«newItem»'}> created`
   },
-  setBG(color){
+  setBG(color) {
     this.props.setBG(color || '#fff')
     return `BG is now ${color}`
   },
@@ -189,8 +187,8 @@ const handlers = {
   },
 
   ...Object.keys(_handlers).reduce(
-    (obj, key) => ({ ...obj, [key]: _handlers[key].command }),
-    {}
+      (obj, key) => ({ ...obj, [key]: _handlers[key].command }),
+      {}
   )
 }
 
@@ -228,11 +226,11 @@ class Terminal extends Component {
       this.setState({ logs: [], command: '' })
       return null
     }
-  
-    if(
-      command.includes('(') 
-      && command.includes(')') 
-      && (command.indexOf('(') < command.indexOf(')'))
+
+    if (
+        command.includes('(')
+        && command.includes(')')
+        && (command.indexOf('(') < command.indexOf(')'))
     ) {
       attr = command.split('(')[1].split(')')[0].split(',')
       command = command.split('(')[0]
@@ -243,6 +241,7 @@ class Terminal extends Component {
     try {
       if (handler) {
         const output = handler.apply(this, attr)
+        console.warn(output)
         log = { timestamp, command, output, kind: 'data' }
       } else {
         let output = eval(this.state.command)
@@ -255,6 +254,7 @@ class Terminal extends Component {
         output: e.message,
         kind: 'error'
       }
+      console.warn(e)
     }
 
     if (typeof log.output === 'object' && log.output !== null) {
@@ -271,22 +271,22 @@ class Terminal extends Component {
 
   render() {
     return (
-      <Outer>
-        <Inner show={this.state.open}>
-          <Form onSubmit={this.__eval}>
-            <Field
-              onChange={e => this.setState({ command: e.target.value })}
-              value={this.state.command}
-            />
-            <Logs data={this.state.logs} />
-          </Form>
-        </Inner>
-      </Outer>
+        <Outer>
+          <Inner show={this.state.open}>
+            <Form onSubmit={this.__eval}>
+              <Field
+                  onChange={e => this.setState({ command: e.target.value })}
+                  value={this.state.command}
+              />
+              <Logs data={this.state.logs}/>
+            </Form>
+          </Inner>
+        </Outer>
     )
   }
 }
 
 export default connect(
-  null,
-  { setBG, addItem, removeAll }
+    null,
+    { setBG, addItem, removeAll }
 )(Terminal)
