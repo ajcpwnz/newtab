@@ -7,9 +7,9 @@ import Persistor from 'components/Persistor/Persistor'
 const Root = () => (
   <Provider store={store}>
     <Persistor persist={['attachments']}>
-      <App />
+      <App/>
     </Persistor>
-  </Provider >
+  </Provider>
 )
 export default Root
 

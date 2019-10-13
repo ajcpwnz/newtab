@@ -6,7 +6,9 @@
     "@babel/core": "7.1.6",
     "@babel/plugin-transform-react-jsx-source": "^7.2.0",
     "@svgr/webpack": "2.4.1",
+    "@types/classnames": "^2.2.9",
     "@types/react-redux": "^7.1.2",
+    "@types/styled-components": "^4.1.19",
     "axios": "^0.18.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
@@ -62,6 +64,7 @@
     "sass-loader": "7.1.0",
     "style-loader": "0.23.0",
     "styled-components": "^4.2.0",
+    "tailwindcss": "^1.1.2",
     "terser-webpack-plugin": "1.1.0",
     "url-loader": "1.1.1",
     "webpack": "4.19.1",
@@ -70,8 +73,10 @@
     "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "tailwind:css": "tailwind build src/main.src.scss -o public/main.css",
+    "tcss": "npm run tailwind:css",
+    "start": "yarn tcss && node scripts/start.js",
+    "build": "yarn tcss && node scripts/build.js",
     "test": "node scripts/test.js"
   },
   "browserslist": [

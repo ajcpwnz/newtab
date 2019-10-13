@@ -1,7 +1,7 @@
-import React, {Component} from 'react' // eslint-disable-line
+import React, { Component } from 'react' // eslint-disable-line
 import storage from 'utils/storage'
-import {restoreStore} from 'store/__shared'
-import {connect} from 'react-redux'
+import { restoreStore } from 'store/__shared'
+import { connect } from 'react-redux'
 
 class Persistor extends Component {
   componentDidMount() {

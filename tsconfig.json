@@ -1,36 +1,55 @@
 {
-    "compilerOptions": {
-      "rootDirs": ["src", "stories"],
-      "target": "es5",
-      "lib": [
-        "dom",
-        "dom.iterable",
-        "esnext"
+  "compilerOptions": {
+    "rootDirs": [
+      "src",
+      "stories"
+    ],
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "noEmit": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "noImplicitAny": true,
+    "paths": {
+      "assets/*": [
+        "src/assets/*"
       ],
-      "allowJs": true,
-      "skipLibCheck": true,
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "downlevelIteration": true,
-      "strict": true,
-      "forceConsistentCasingInFileNames": true,
-      "module": "esnext",
-      "resolveJsonModule": true,
-      "isolatedModules": false,
-      "noEmit": true,
-      "jsx": "preserve",
-      "moduleResolution": "node",
-      "baseUrl": "./",
-      "noImplicitAny": true,
-      "paths": {
-        "assets/*": ["src/assets/*"],
-        "components/*": ["src/components/*"],
-        "store/*": ["src/store/*"],
-        "services/*": ["src/services/*"],
-        "selectors/*": ["src/selectors/*"],
-        "utils/*": ["src/utils/*"],
-        "pages/*": ["src/pages/*"],
-        "hooks/*": ["src/hooks/*"]
-      }
+      "components/*": [
+        "src/components/*"
+      ],
+      "store/*": [
+        "src/store/*"
+      ],
+      "services/*": [
+        "src/services/*"
+      ],
+      "selectors/*": [
+        "src/selectors/*"
+      ],
+      "utils/*": [
+        "src/utils/*"
+      ],
+      "pages/*": [
+        "src/pages/*"
+      ],
+      "hooks/*": [
+        "src/hooks/*"
+      ]
     }
   }
+}

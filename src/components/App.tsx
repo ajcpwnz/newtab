@@ -1,19 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { setBG } from 'store/settings'
 import AttachmentLayer from 'components/AttachmentLayer/AttachmentLayer'
 import Settings from 'components/Settings/Settings'
 import Terminal from 'components/Terminal/Terminal'
 import { AppState } from 'store/index'
-import './App.scss'
 
 const App = ({ mainBG }: { mainBG: string }) => {
   return (
     <div className="App" style={{ backgroundColor: mainBG }}>
-      <Terminal />
+      <Terminal/>
       <div className="inner">
-        <Settings />
-        <AttachmentLayer />
+        <AttachmentLayer/>
+        <Settings/>
       </div>
     </div>
   )
